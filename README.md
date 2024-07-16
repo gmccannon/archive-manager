@@ -1,4 +1,4 @@
-# Start up
+# Start up guide
 
 Install docker  
 Start the docker daemon  
