@@ -1,0 +1,22 @@
+services:
+  flask-app:
+    build:
+      context: ./back
+    ports:
+      - "5000:5000"
+    networks:
+      - app-network
+
+  react-app:
+    build:
+      context: ./front
+    ports:
+      - "3000:3000"
+    depends_on:
+      - flask-app
+    networks:
+      - app-network
+
+networks:
+  app-network:
+    driver: bridge
