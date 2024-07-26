@@ -1,6 +1,3 @@
 flask
-pandas
-openpyxl
-pdfkit
 reportlab
 flask_cors

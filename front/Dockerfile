@@ -8,6 +8,7 @@ COPY . .
 
 # Install node packages
 RUN npm install
+RUN npm i --save react-drag-drop-files
 
 # Start the app
 CMD ["npm", "start"]
