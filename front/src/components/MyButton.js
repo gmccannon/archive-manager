@@ -1,9 +1,9 @@
 import React, { useState } from 'react'
 
-function MyButton ({ theme, setTheme }) {
+function MyButton () {
     return(
         <>
-            <button onClick={() => setTheme(theme == 'Black' ? 'White' : 'Black')}>{theme === 0 ? 'Switch to Dark Theme' : 'Switch to Light Theme'}</button>
+            <input type="reset" value="Clear File"></input>
         </>
         
     )
