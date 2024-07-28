@@ -12,19 +12,18 @@ export default function ButtonAppBar() {
     <Box sx={{ mt: 8 }} >
       <AppBar position="fixed" sx={{ width: '100%' }}>
         <Toolbar>
-          <IconButton
-            size="large"
-            edge="start"
-            color="inherit"
-            aria-label="menu"
-            sx={{ mr: 2 }}
-          >
-            <MenuIcon />
-          </IconButton>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
-            News
+            Anything to PDF
           </Typography>
-          <Button color="inherit">Login</Button>
+          <Button
+            color="inherit"
+            component="a"
+            href="https://github.com/gmccannon"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            Github
+          </Button>
         </Toolbar>
       </AppBar>
     </Box>
