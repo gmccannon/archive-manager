@@ -4,18 +4,17 @@ import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
 import Typography from '@mui/material/Typography';
 import Button from '@mui/material/Button';
-import IconButton from '@mui/material/IconButton';
-import MenuIcon from '@mui/icons-material/Menu';
 
 export default function ButtonAppBar() {
   return (
     <Box sx={{ mt: 8 }} >
-      <AppBar position="fixed" sx={{ width: '100%' }}>
+      <AppBar position="fixed" sx={{ width: '100%', backgroundColor: 'white' }}>
         <Toolbar>
-          <Typography variant="h6" component="div" sx={{ flexGrow: 1 }}>
+          <Typography variant="h6" component="div" sx={{ flexGrow: 1, color: 'Black'}}>
             Anything to PDF
           </Typography>
           <Button
+            sx={{color: 'Black'}}
             color="inherit"
             component="a"
             href="https://github.com/gmccannon"

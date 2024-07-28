@@ -91,6 +91,7 @@ function DragDrop() {
         <input {...getInputProps()} />
         <Typography variant="body1">{file ? `${file.name}` : 'Drop a file here'}</Typography>
         <Button
+          sx={{ backgroundColor: 'rgb(202, 64, 56)', '&:hover': { backgroundColor: 'rgb(202, 64, 56)' } }}
           component="label"
           role={undefined}
           variant="contained"
@@ -103,6 +104,7 @@ function DragDrop() {
       </Dropzone>
       <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
         <Button
+          sx={{ backgroundColor: 'rgb(202, 64, 56)', '&:hover': { backgroundColor: 'rgb(202, 64, 56)' } }}
           onClick={handleUpload}
           variant="contained"
           disabled={!file}
@@ -111,8 +113,15 @@ function DragDrop() {
           Upload File
         </Button>
         <Button
+          sx={{
+            color: 'rgb(214, 40, 70)',
+            borderColor: 'rgb(214, 40, 70)', // Fix border color
+            '&:hover': {
+              color: 'rgb(214, 40, 70)', // Match hover text color
+              borderColor: 'rgb(214, 40, 70)', // Match hover border color
+            },
+          }}
           onClick={handleReset}
-          type="button"
           variant="outlined"
           startIcon={<DeleteIcon />}
         >
