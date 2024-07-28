@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { useDropzone } from 'react-dropzone';
 import Button from '@mui/material/Button';
 import DeleteIcon from '@mui/icons-material/Delete';
 import SendIcon from '@mui/icons-material/Send';
@@ -18,6 +19,19 @@ const VisuallyHiddenInput = styled('input')({
   whiteSpace: 'nowrap',
   width: 1,
 });
+
+const Dropzone = styled('div')(({ theme }) => ({
+  border: '2px dashed gray',
+  borderRadius: theme.shape.borderRadius,
+  padding: theme.spacing(2),
+  textAlign: 'center',
+  cursor: 'pointer',
+  backgroundColor: '#f7f7f7',
+  color: 'gray',
+  '&:hover': {
+    backgroundColor: '#e0e0e0',
+  },
+}));
 
 function DragDrop() {
   const [file, setFile] = useState(null);
@@ -44,7 +58,6 @@ function DragDrop() {
       });
 
       if (response.ok) {
-        // Handle the response, which may include the file or other data
         const blob = await response.blob();
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
@@ -62,21 +75,32 @@ function DragDrop() {
     }
   };
 
+  const { getRootProps, getInputProps } = useDropzone({
+    onDrop: (acceptedFiles) => {
+      if (acceptedFiles.length > 0) {
+        setFile(acceptedFiles[0]);
+      }
+    },
+    noClick: true,
+    noKeyboard: true,
+  });
+
   return (
     <div>
-      <Button
-        component="label"
-        role={undefined}
-        variant="contained"
-        tabIndex={-1}
-        startIcon={<CloudUploadIcon />}
-      >
-        Select A File
-        <VisuallyHiddenInput onChange={handleFileChange} name="file" type="file" />
-      </Button>
-      <Typography variant="body1" sx={{ mt: 2 }}>
-        {file ? `Selected File: ${file.name}` : 'No file selected'}
-      </Typography>
+      <Dropzone {...getRootProps()}>
+        <input {...getInputProps()} />
+        <Typography variant="body1">{file ? `${file.name}` : 'Drop a file here'}</Typography>
+        <Button
+          component="label"
+          role={undefined}
+          variant="contained"
+          tabIndex={-1}
+          startIcon={<CloudUploadIcon />}
+        >
+          Select A File
+          <VisuallyHiddenInput onChange={handleFileChange} name="file" type="file" />
+        </Button>
+      </Dropzone>
       <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
         <Button
           onClick={handleUpload}
