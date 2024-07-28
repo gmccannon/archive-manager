@@ -26,6 +26,7 @@ const Dropzone = styled('div')(({ theme }) => ({
   padding: theme.spacing(2),
   textAlign: 'center',
   cursor: 'pointer',
+  height: '100%',
   backgroundColor: '#f7f7f7',
   color: 'gray',
   '&:hover': {
@@ -86,7 +87,7 @@ function DragDrop() {
   });
 
   return (
-    <div>
+    <div style={{ width: '60%', height: '60%', margin: 'auto', textAlign: 'center' }}>
       <Dropzone {...getRootProps()}>
         <input {...getInputProps()} />
         <Typography variant="body1">{file ? `${file.name}` : 'Drop a file here'}</Typography>
@@ -102,7 +103,7 @@ function DragDrop() {
           <VisuallyHiddenInput onChange={handleFileChange} name="file" type="file" />
         </Button>
       </Dropzone>
-      <Stack direction="row" spacing={2} sx={{ mt: 2 }}>
+      <Stack direction="row" spacing={2} sx={{ mt: 2, justifyContent: 'center'}}>
         <Button
           sx={{ backgroundColor: 'rgb(202, 64, 56)', '&:hover': { backgroundColor: 'rgb(202, 64, 56)' } }}
           onClick={handleUpload}
