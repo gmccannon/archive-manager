@@ -8,7 +8,11 @@ COPY . .
 
 # Install node packages
 RUN npm install
-RUN npm i --save react-drag-drop-files
+RUN npm install react-dropzone
+RUN npm install react-drag-drop-files
+RUN npm install @mui/material @emotion/react @emotion/styled
+RUN npm install @mui/icons-material
+
 
 # Start the app
 CMD ["npm", "start"]
