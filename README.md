@@ -14,7 +14,6 @@ Node.js, React, Flask, Docker, Google Cloud Run
 - [x] Conversion backend
 - [x] Drag and Drop
 - [ ] Style Page
-  - [ ] Figure out how to extend drop zone height
   - [ ] Logo
 - [ ] Host on GCR
   - [x] Configure Docker

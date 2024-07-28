@@ -8,7 +8,8 @@ function App() {
       <header>
         <ButtonAppBar />
       </header>
-      <h2 className='tool__header__subtitle'>Upload a file to convert it to a pdf</h2>
+      <h1 className='tool__header__title'>Anything to PDF</h1>
+      <h2 className='tool__header__subtitle'>Upload any file to convert it to a PDF</h2>
       <DragDrop />
     </div>
   );

@@ -1,17 +1,25 @@
 .App {
   text-align: center;
   background-color: rgb(245, 245, 250);
-  min-height: 100vh;
+  min-height: 88vh;
+}
+
+.tool__header__title {
+  font-weight: 800;
+  font-size: 4vh;
+  line-height: 1vh;
+  color: #33333b;
+  text-align: center;
 }
 
 .tool__header__subtitle {
   max-width: 800px;
-  margin: 8px auto 0;
+  margin: 2vh auto 0;
   line-height: 32px;
   font-size: 22px;
   font-weight: 400;
   color: #47474f;
-  padding-bottom: 3%;
+  padding-bottom: 1vh;
 }
 
 .App-logo {

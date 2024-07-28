@@ -21,14 +21,18 @@ const VisuallyHiddenInput = styled('input')({
 });
 
 const Dropzone = styled('div')(({ theme }) => ({
-  border: '2px dashed gray',
+  border: '.3vh dashed gray',
   borderRadius: theme.shape.borderRadius,
   padding: theme.spacing(2),
-  textAlign: 'center',
-  cursor: 'pointer',
-  height: '100%',
+  height: '55vh',
   backgroundColor: '#f7f7f7',
   color: 'gray',
+  display: 'flex',
+  flexDirection: 'column',
+  alignItems: 'center',
+  justifyContent: 'center',
+  cursor: 'pointer',
+  textAlign: 'center',
   '&:hover': {
     backgroundColor: '#e0e0e0',
   },
@@ -87,10 +91,9 @@ function DragDrop() {
   });
 
   return (
-    <div style={{ width: '60%', height: '60%', margin: 'auto', textAlign: 'center' }}>
+    <div style={{ width: '60%', height: '100%', margin: 'auto', textAlign: 'center' }}>
       <Dropzone {...getRootProps()}>
         <input {...getInputProps()} />
-        <Typography variant="body1">{file ? `${file.name}` : 'Drop a file here'}</Typography>
         <Button
           sx={{ backgroundColor: 'rgb(202, 64, 56)', '&:hover': { backgroundColor: 'rgb(202, 64, 56)' } }}
           component="label"
@@ -102,8 +105,11 @@ function DragDrop() {
           Select A File
           <VisuallyHiddenInput onChange={handleFileChange} name="file" type="file" />
         </Button>
+        <Typography variant="body1" style={{ marginTop: '1vh' }}>
+          {file ? `${file.name}` : 'Or drop a file here'}
+        </Typography>
       </Dropzone>
-      <Stack direction="row" spacing={2} sx={{ mt: 2, justifyContent: 'center'}}>
+      <Stack direction="row" spacing={2} sx={{ mt: 2, justifyContent: 'center' }}>
         <Button
           sx={{ backgroundColor: 'rgb(202, 64, 56)', '&:hover': { backgroundColor: 'rgb(202, 64, 56)' } }}
           onClick={handleUpload}
@@ -126,7 +132,7 @@ function DragDrop() {
           variant="outlined"
           startIcon={<DeleteIcon />}
         >
-          Delete File
+          Remove File
         </Button>
       </Stack>
     </div>
