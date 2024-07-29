@@ -24,16 +24,12 @@ export default function TopBar() {
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img src={logo} alt="Logo" style={{ height: 40, marginRight: '1vw' }} />
-            <Typography variant="h6" component="div" sx={{ color: 'black' }}>
+            <Typography variant="h6" component="div" sx={{ color: 'black', marginRight: '1vw' }}>
               Anything PDF
             </Typography>
-          </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            {/* Add a flex grow property to push the button to the left */}
-            <Box sx={{ flexGrow: 1}}>
-              <Button
+            <Button
                 onClick={handleGoHome}
-                sx={{ my: 2, color: 'black', fontWeight: 600}}
+                sx={{ my: 2, color: 'black', fontWeight: 600,}}
               >
                 Convert
               </Button>
@@ -43,7 +39,8 @@ export default function TopBar() {
               >
                 Compress
               </Button>
-            </Box>
+          </Box>
+          <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Button
               sx={{ ml: 2, color: 'black' }}
               color="inherit"
