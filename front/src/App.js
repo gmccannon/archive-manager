@@ -1,16 +1,19 @@
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import ButtonAppBar from './components/ButtonAppBar';
-import DragDrop from './components/DragDrop';
+import TopBar from './components/TopBar';
+import UploadPage from './pages/UploadPage';
+import CompressPage from './pages/CompressPage';
 
 function App() {
   return (
     <div className="App">
-      <header>
-        <ButtonAppBar />
-      </header>
-      <h1 className='tool__header__title'>Anything to PDF</h1>
-      <h2 className='tool__header__subtitle'>Upload any file to convert it to a PDF</h2>
-      <DragDrop />
+      <BrowserRouter>
+        <TopBar />
+        <Routes>
+          <Route path="/" element={<UploadPage />}/>
+          <Route path="/compress" element={<CompressPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }

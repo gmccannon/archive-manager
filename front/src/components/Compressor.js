@@ -38,7 +38,7 @@ const Dropzone = styled('div')(({ theme }) => ({
   },
 }));
 
-function DragDrop() {
+function Compressor() {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -57,7 +57,7 @@ function DragDrop() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:5000/uploader', {
+      const response = await fetch('http://localhost:5000/compressor', {
         method: 'POST',
         body: formData,
       });
@@ -67,7 +67,7 @@ function DragDrop() {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'generated_pdf.pdf';
+        a.download = 'generated_pdf.zip';
         document.body.appendChild(a);
         a.click();
         a.remove();
@@ -139,4 +139,4 @@ function DragDrop() {
   );
 }
 
-export default DragDrop;
+export default Compressor;
