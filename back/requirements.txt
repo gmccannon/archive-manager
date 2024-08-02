@@ -1,5 +1,3 @@
 flask
 reportlab
 flask_cors
-zipfile
-io

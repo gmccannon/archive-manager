@@ -3,6 +3,7 @@ import './App.css';
 import TopBar from './components/TopBar';
 import UploadPage from './pages/UploadPage';
 import CompressPage from './pages/CompressPage';
+import BottomBar from "./components/BottomBar";
 
 function App() {
   return (
@@ -13,6 +14,7 @@ function App() {
           <Route path="/" element={<UploadPage />}/>
           <Route path="/compress" element={<CompressPage />} />
         </Routes>
+        <BottomBar />
       </BrowserRouter>
     </div>
   );

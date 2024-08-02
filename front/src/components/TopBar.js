@@ -1,5 +1,5 @@
-import * as React from 'react';
-import { useNavigate } from 'react-router-dom';
+import React, { useState } from 'react';
+import { useNavigate, useLocation } from 'react-router-dom';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import Toolbar from '@mui/material/Toolbar';
@@ -9,33 +9,31 @@ import logo from '../icons/logo.png';
 
 export default function TopBar() {
   const navigate = useNavigate();
+  const location = useLocation();
+  const activetab = location.pathname;
 
-  const handleGoHome = () => {
-    navigate('/');
-  };
-
-  const handleGoCompress = () => {
-    navigate('/compress');
+  const handleNavgate = (page) => {
+    navigate(page);
   };
 
   return (
     <Box sx={{ mt: 18 }}>
-      <AppBar position="fixed" sx={{ width: '100%', backgroundColor: 'white' }}>
+      <AppBar position="fixed" sx={{ height: '6vh', width: '100%', backgroundColor: 'white' }}>
         <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <img src={logo} alt="Logo" style={{ height: 40, marginRight: '1vw' }} />
+            <img src={logo} alt="Logo" style={{ height: '3vh', marginRight: '1vw' }} />
             <Typography variant="h6" component="div" sx={{ color: 'black', marginRight: '1vw' }}>
               Anything PDF
             </Typography>
             <Button
-                onClick={handleGoHome}
-                sx={{ my: 2, color: 'black', fontWeight: 600,}}
+                onClick={ () => handleNavgate('/') }
+                sx={{ color: activetab === '/' ? 'red' : 'black', fontWeight: 600 }}
               >
                 Convert
               </Button>
               <Button
-                onClick={handleGoCompress}
-                sx={{ my: 2, color: 'black', fontWeight: 600}}
+                onClick={ () => handleNavgate('/compress') }
+                sx={{ color: activetab === '/compress' ? 'red' : 'black', fontWeight: 600}}
               >
                 Compress
               </Button>
