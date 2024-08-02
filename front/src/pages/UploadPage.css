@@ -1,0 +1,17 @@
+.tool__header__title {
+    font-weight: 800;
+    font-size: 4vh;
+    line-height: 1vh;
+    color: #33333b;
+    text-align: center;
+  }
+  
+  .tool__header__subtitle {
+    max-width: 800px;
+    margin: 2vh auto 0;
+    line-height: 32px;
+    font-size: 22px;
+    font-weight: 400;
+    color: #47474f;
+    padding-bottom: 1vh;
+  }

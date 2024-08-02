@@ -1,23 +1,19 @@
-import logo from './logo.svg';
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import './App.css';
-import MyButton from "./components/MyButton.js"
-import { useState } from 'react';
+import TopBar from './components/TopBar';
+import UploadPage from './pages/UploadPage';
+import CompressPage from './pages/CompressPage';
 
 function App() {
-  const [theme, setTheme] = useState('Black');
-
   return (
     <div className="App">
-      <header className="App-header">
-        <MyButton theme={theme} setTheme={setTheme} />
-        <img src={logo} className="App-logo" alt="logo" />
-        <h1 style={{backgroundColor: theme}}>Upload a file to convert it to a pdf</h1>
-        <form action="/uploader" method="post" enctype="multipart/form-data">
-          <input type="file" name="file" required></input>
-          <input type="submit" value="Upload"></input>
-          <input type="reset" value="Clear File"></input>
-        </form>
-      </header>
+      <BrowserRouter>
+        <TopBar />
+        <Routes>
+          <Route path="/" element={<UploadPage />}/>
+          <Route path="/compress" element={<CompressPage />} />
+        </Routes>
+      </BrowserRouter>
     </div>
   );
 }
