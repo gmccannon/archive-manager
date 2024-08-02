@@ -67,7 +67,7 @@ function Compressor() {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'generated_pdf.zip';
+        a.download = file.name + '.zip';
         document.body.appendChild(a);
         a.click();
         a.remove();

@@ -3,33 +3,39 @@ from reportlab.pdfgen import canvas
 from flask_cors import CORS
 import zipfile
 import io
+import os
 
 app = Flask(__name__)
 
 CORS(app)
 
-@app.route('/uploader', methods=['GET', 'POST'])
-def uploader():
-    if request.method == 'POST':
-        # Check if the POST request has the file part
-        if 'file' not in request.files:
-            return 'No file part in the request'
+@app.route('/decompressor', methods=['POST'])
+def decompressor():
+    if 'file' not in request.files:
+        return 'No file part in the request', 400
 
-        file = request.files['file']
+    file = request.files['file']
 
-        # If the user does not select a file, the browser submits an empty file without filename
-        if file.filename == '':
-            return 'No selected file'
+    if file.filename == '':
+        return 'No selected file', 400
 
-        # Read the content of the uploaded text file
-        text_content = file.read().decode('utf-8')
+    # Create a temporary directory to extract files
+    extract_path = 'extracted_files'
+    os.makedirs(extract_path, exist_ok=True)
 
-        # Generate a PDF from the text content
-        pdf_path = '/tmp/generated_pdf.pdf'
-        generate_pdf(text_content, pdf_path)
+    with zipfile.ZipFile(file, 'r') as zip_ref:
+        zip_ref.extractall(extract_path)
+        file_info = zip_ref.infolist()[0]  # Assuming you want the first file
 
-        # Send the PDF file as an attachment
-        return send_file(pdf_path, as_attachment=True)
+    extracted_file_path = os.path.join(extract_path, file_info.filename)
+
+    # Send the extracted file back as a response
+    return send_file(
+        extracted_file_path,
+        as_attachment=True,
+        download_name=file_info.filename,
+        mimetype='application/octet-stream'
+    )
 
 @app.route('/compressor', methods=['POST'])
 def compresser():
@@ -60,23 +66,6 @@ def compresser():
 
         # Send the ZIP file as an attachment
         return send_file(zip_buffer, as_attachment=True, download_name='compressed_file.zip', mimetype='application/zip')
-
-def generate_pdf(text_content, pdf_path):
-    # Create a canvas
-    c = canvas.Canvas(pdf_path)
-
-    # Set up fonts and size
-    c.setFont("Helvetica", 12)
-
-    # Write text content to the PDF
-    text_lines = text_content.splitlines()
-    y_position = 750  # Start position
-    for line in text_lines:
-        c.drawString(50, y_position, line)
-        y_position -= 20  # Adjust vertical spacing
-
-    # Save the PDF
-    c.save()
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

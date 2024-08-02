@@ -38,7 +38,7 @@ const Dropzone = styled('div')(({ theme }) => ({
   },
 }));
 
-function Uploader() {
+function Decompressor() {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -57,7 +57,7 @@ function Uploader() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:5000/uploader', {
+      const response = await fetch('http://localhost:5000/decompressor', {
         method: 'POST',
         body: formData,
       });
@@ -139,4 +139,4 @@ function Uploader() {
   );
 }
 
-export default Uploader;
+export default Decompressor;
