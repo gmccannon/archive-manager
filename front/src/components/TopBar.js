@@ -27,13 +27,13 @@ export default function TopBar() {
             </Typography>
             <Button
                 onClick={ () => handleNavigate('/') }
-                sx={{ color: activetab === '/' ? 'red' : 'black', fontWeight: 600 }}
+                sx={{ color: activetab === '/' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600 }}
               >
                 Decompress
               </Button>
               <Button
                 onClick={ () => handleNavigate('/compress') }
-                sx={{ color: activetab === '/compress' ? 'red' : 'black', fontWeight: 600}}
+                sx={{ color: activetab === '/compress' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
               >
                 Compress
               </Button>

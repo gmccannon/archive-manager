@@ -95,7 +95,7 @@ function Decompressor() {
       <Dropzone {...getRootProps()}>
         <input {...getInputProps()} />
         <Button
-          sx={{ backgroundColor: 'rgb(202, 64, 56)', '&:hover': { backgroundColor: 'rgb(202, 64, 56)' } }}
+          sx={{ backgroundColor: 'rgb(38, 91, 172)', '&:hover': { backgroundColor: 'rgb(38, 91, 172)' } }}
           component="label"
           role={undefined}
           variant="contained"
@@ -111,7 +111,7 @@ function Decompressor() {
       </Dropzone>
       <Stack direction="row" spacing={2} sx={{ mt: 2, justifyContent: 'center' }}>
         <Button
-          sx={{ backgroundColor: 'rgb(202, 64, 56)', '&:hover': { backgroundColor: 'rgb(202, 64, 56)' } }}
+          sx={{ backgroundColor: 'rgb(38, 91, 172)', '&:hover': { backgroundColor: 'rgb(38, 91, 172)' } }}
           onClick={handleUpload}
           variant="contained"
           disabled={!file}
@@ -121,11 +121,11 @@ function Decompressor() {
         </Button>
         <Button
           sx={{
-            color: 'rgb(214, 40, 70)',
-            borderColor: 'rgb(214, 40, 70)', // Fix border color
+            color: 'rgb(38, 91, 172)',
+            borderColor: 'rgb(38, 91, 172)', // Fix border color
             '&:hover': {
-              color: 'rgb(214, 40, 70)', // Match hover text color
-              borderColor: 'rgb(214, 40, 70)', // Match hover border color
+              color: 'rgb(38, 91, 172)', // Match hover text color
+              borderColor: 'rgb(38, 91, 172)', // Match hover border color
             },
           }}
           onClick={handleReset}
