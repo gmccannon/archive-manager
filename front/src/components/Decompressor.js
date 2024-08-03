@@ -57,7 +57,7 @@ function Decompressor() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('https://anythingarchive.vercel.app/api/decompressor', {
+      const response = await fetch('http://localhost:5000/decompressor', {
         method: 'POST',
         body: formData,
       });
@@ -67,6 +67,7 @@ function Decompressor() {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
+        a.download = 'generated_pdf.pdf';
         document.body.appendChild(a);
         a.click();
         a.remove();

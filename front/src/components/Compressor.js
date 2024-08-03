@@ -57,18 +57,27 @@ function Compressor() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('https://anythingarchive.vercel.app/api/compressor', {
+      const response = await fetch('http://localhost:5000/compressor', {
         method: 'POST',
-      });    
-      if (!response.ok) {
-        throw new Error(`HTTP error! Status: ${response.status}`);
+        body: formData,
+      });
+
+      if (response.ok) {
+        const blob = await response.blob();
+        const url = window.URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = file.name + '.zip';
+        document.body.appendChild(a);
+        a.click();
+        a.remove();
+      } else {
+        alert('File upload failed.');
       }
-      const data = await response.text();  // or response.json() if you expect JSON
-      console.log('Response:', data);
     } catch (error) {
-      console.error('Error:', error);
-      alert('An error occurred: ' + error.message);
-    }    
+      console.error('Error uploading file:', error);
+      alert('An error occurred while uploading the file.');
+    }
   };
 
   const { getRootProps, getInputProps } = useDropzone({
