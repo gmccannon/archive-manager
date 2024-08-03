@@ -3,7 +3,7 @@ const serverless = require('serverless-http');
 const cors = require('cors');
 
 const app = express();
-app.use(json());
+app.use(express.json()); // Corrected the call to `json()`
 app.use(cors());
 
 app.post('/compressor', (req, res) => {
@@ -20,4 +20,5 @@ app.use((err, req, res, next) => {
   res.status(500).send('Something broke!');
 });
 
-export const handler = serverless(app);
+// Export the handler function using CommonJS syntax
+module.exports.handler = serverless(app);
