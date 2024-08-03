@@ -57,7 +57,7 @@ function Decompressor() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:5000/decompressor', {
+      const response = await fetch('https://anythingarchive.vercel.app/decompressor', {
         method: 'POST',
         body: formData,
       });
