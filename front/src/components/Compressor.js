@@ -57,7 +57,7 @@ function Compressor() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('https://anythingarchive.vercel.app/compressor', {
+      const response = await fetch('https://anythingarchive.vercel.app/api/compressor', {
         method: 'POST',
         body: formData,
       });
