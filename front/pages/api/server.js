@@ -1,6 +1,6 @@
-import express, { json } from 'express';
-import serverless from 'serverless-http';
-import cors from 'cors';
+const express = require('express');
+const serverless = require('serverless-http');
+const cors = require('cors');
 
 const app = express();
 app.use(json());
