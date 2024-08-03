@@ -57,9 +57,14 @@ function Compressor() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('https://anythingarchive.vercel.app/api/data/compressor', {
+      const response = await fetch('https://anythingarchive.vercel.app/api/compressor', {
         method: 'POST',
       });
+      if (!response.ok) {
+        throw new Error(`HTTP error! Status: ${response.status}`);
+      }
+      const data = await response.text();  // or response.json() if you expect JSON
+      console.log('Response:', data);
     } catch (error) {
       console.error('Error uploading file:', error);
       alert('An error occurred while uploading the file.');
