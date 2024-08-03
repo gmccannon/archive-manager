@@ -59,7 +59,7 @@ function Compressor() {
     try {
       const response = await fetch('https://anythingarchive.vercel.app/api/compressor', {
         method: 'POST',
-      });
+      });    
       if (!response.ok) {
         throw new Error(`HTTP error! Status: ${response.status}`);
       }
@@ -67,8 +67,8 @@ function Compressor() {
       console.log('Response:', data);
     } catch (error) {
       console.error('Error:', error);
-      alert('An error occurred');
-    }
+      alert('An error occurred: ' + error.message);
+    }    
   };
 
   const { getRootProps, getInputProps } = useDropzone({

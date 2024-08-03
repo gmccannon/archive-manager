@@ -1,19 +1,17 @@
 const express = require('express');
 const serverless = require('serverless-http');
+const cors = require('cors');
 
 const app = express();
-
 app.use(express.json());
-
-const cors = require('cors');
 app.use(cors());
 
 app.post('/compressor', (req, res) => {
-    res.send('Hello from Express compress!');
-  });
+  res.send('Hello from Express compress!');
+});
 
 app.post('/decompressor', (req, res) => {
-    res.send('Hello from Express decompress!');
+  res.send('Hello from Express decompress!');
 });
 
 module.exports.handler = serverless(app);
