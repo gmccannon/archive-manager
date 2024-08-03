@@ -66,8 +66,8 @@ function Compressor() {
       const data = await response.text();  // or response.json() if you expect JSON
       console.log('Response:', data);
     } catch (error) {
-      console.error('Error uploading file:', error);
-      alert('An error occurred while uploading the file.');
+      console.error('Error:', error);
+      alert('An error occurred');
     }
   };
 

@@ -5,6 +5,9 @@ const app = express();
 
 app.use(express.json());
 
+const cors = require('cors');
+app.use(cors());
+
 app.post('/compressor', (req, res) => {
     res.send('Hello from Express compress!');
   });
