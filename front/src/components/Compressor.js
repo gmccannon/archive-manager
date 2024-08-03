@@ -59,21 +59,7 @@ function Compressor() {
     try {
       const response = await fetch('https://anythingarchive.vercel.app/api/compressor', {
         method: 'POST',
-        body: formData,
       });
-
-      if (response.ok) {
-        const blob = await response.blob();
-        const url = window.URL.createObjectURL(blob);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = file.name + '.zip';
-        document.body.appendChild(a);
-        a.click();
-        a.remove();
-      } else {
-        alert('File upload failed.');
-      }
     } catch (error) {
       console.error('Error uploading file:', error);
       alert('An error occurred while uploading the file.');
