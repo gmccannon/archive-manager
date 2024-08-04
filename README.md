@@ -7,7 +7,7 @@ In the root directory run:
 Navigate to [localhost 3000](http://localhost:3000/)  
 
 ## Tech Stack  
-Node.js, React, Flask, Docker, Google Cloud Run  
+Node.js, React, Flask, Docker, Vercel, Google Cloud Run  
 
 ## TODO
 - [x] File upload and removal
