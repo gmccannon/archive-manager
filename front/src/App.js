@@ -4,6 +4,9 @@ import TopBar from './components/TopBar';
 import DecompressPage from './pages/DecompressPage';
 import CompressPage from './pages/CompressPage';
 import BottomBar from "./components/BottomBar";
+import SignPage from "./pages/SignPage";
+import UnsignPage from "./pages/UnsignPage";
+import RepairPage from "./pages/RepairPage";
 
 function App() {
   return (
@@ -13,6 +16,9 @@ function App() {
         <Routes>
           <Route path="/" element={<DecompressPage />}/>
           <Route path="/compress" element={<CompressPage />} />
+          <Route path="/sign" element={<SignPage />} />
+          <Route path="/verify" element={<UnsignPage />} />
+          <Route path="/repair" element={<RepairPage />} />
         </Routes>
         <BottomBar />
       </BrowserRouter>

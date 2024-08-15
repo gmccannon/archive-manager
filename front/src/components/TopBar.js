@@ -37,6 +37,24 @@ export default function TopBar() {
               >
                 Compress
               </Button>
+              <Button
+                onClick={ () => handleNavigate('/sign') }
+                sx={{ color: activetab === '/sign' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
+              >
+                Sign
+              </Button>
+              <Button
+                onClick={ () => handleNavigate('/verify') }
+                sx={{ color: activetab === '/verify' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
+              >
+                Verify
+              </Button>
+              <Button
+                onClick={ () => handleNavigate('/repair') }
+                sx={{ color: activetab === '/repair' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
+              >
+                Repair
+              </Button>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <Button
