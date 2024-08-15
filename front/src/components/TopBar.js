@@ -23,19 +23,31 @@ export default function TopBar() {
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img src={logo} alt="Logo" style={{ height: '5vh', marginRight: '1vw' }} />
             <Typography variant="h6" component="div" sx={{ color: 'black', marginRight: '1vw' }}>
-              Anything Archive
+              Archive Manager
             </Typography>
-            <Button
+              <Button
+                  onClick={ () => handleNavigate('/compress') }
+                  sx={{ color: activetab === '/compress' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
+                >
+                  Compress
+                </Button>
+              <Button
                 onClick={ () => handleNavigate('/') }
                 sx={{ color: activetab === '/' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600 }}
               >
                 Decompress
               </Button>
               <Button
-                onClick={ () => handleNavigate('/compress') }
-                sx={{ color: activetab === '/compress' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
+                onClick={ () => handleNavigate('/encrypt') }
+                sx={{ color: activetab === '/encrypt' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
               >
-                Compress
+                Encrypt
+              </Button>
+              <Button
+                onClick={ () => handleNavigate('/decrypt') }
+                sx={{ color: activetab === '/decrypt' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
+              >
+                Decrypt
               </Button>
               <Button
                 onClick={ () => handleNavigate('/sign') }
@@ -54,6 +66,12 @@ export default function TopBar() {
                 sx={{ color: activetab === '/repair' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
               >
                 Repair
+              </Button>
+              <Button
+                onClick={ () => handleNavigate('/split') }
+                sx={{ color: activetab === '/split' ? 'rgb(38, 91, 172)' : 'black', fontWeight: 600}}
+              >
+                Split
               </Button>
           </Box>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
