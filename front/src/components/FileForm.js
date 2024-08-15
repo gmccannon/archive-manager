@@ -38,7 +38,7 @@ const Dropzone = styled('div')(({ theme }) => ({
   },
 }));
 
-function Decompressor() {
+function FileForm(props) {
   const [file, setFile] = useState(null);
 
   const handleFileChange = (event) => {
@@ -57,7 +57,8 @@ function Decompressor() {
     formData.append('file', file);
 
     try {
-      const response = await fetch('http://localhost:5000/decompressor', {
+      const destinationString = 'http://localhost:5000/{props.endpoint}'
+      const response = await fetch(destinationString, {
         method: 'POST',
         body: formData,
       });
@@ -139,4 +140,4 @@ function Decompressor() {
   );
 }
 
-export default Decompressor;
+export default FileForm;
