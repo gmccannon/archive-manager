@@ -17,7 +17,7 @@ export default function TopBar() {
 
   const handleNavigate = (page) => {
     navigate(page);
-    setMobileOpen(false); // Close mobile menu when navigating
+    setMobileOpen(false);
   };
 
   const handleDrawerToggle = () => {
@@ -26,18 +26,18 @@ export default function TopBar() {
 
   return (
     <Box sx={{ mt: 18 }}>
-      <AppBar position="fixed" sx={{ height: '6.5vh', width: '100%', backgroundColor: 'white' }}>
-        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between' }}>
+      <AppBar position="fixed" sx={{ height: '4rem', width: '100%', backgroundColor: 'white' }}>
+        <Toolbar sx={{ display: 'flex', justifyContent: 'space-between', minHeight: '4rem' }}>
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <img src={logo} alt="Logo" style={{ height: '5vh', marginRight: '1vw' }} />
-            <Typography variant="h6" component="div" sx={{ color: 'black', marginRight: '1vw' }}>
+            <img src={logo} alt="Logo" style={{ height: '3rem', marginRight: '1rem' }} />
+            <Typography variant="h6" component="div" sx={{ color: 'black', marginRight: '1rem' }}>
               Archive Manager
             </Typography>
             <Box
               sx={{
                 display: { xs: 'none', md: 'flex' }, // Hide buttons on mobile
                 flexWrap: 'wrap',
-                gap: '0.5vw',
+                gap: '0.5rem',
               }}
             >
               {['/compress', '/', '/encrypt', '/decrypt', '/sign', '/verify', '/repair', '/split'].map(
@@ -59,14 +59,14 @@ export default function TopBar() {
           <IconButton
             sx={{ 
               display: { xs: 'flex', md: 'none' }, // Show menu icon on mobile
-              color: 'black', // Ensure the icon is visible
-              padding: '10px', // Increase padding for easier clicking
+              color: 'black', 
+              padding: '1rem', // Consistent padding
             }} 
-            edge="end" // Align to the right side
+            edge="end"
             aria-label="menu"
             onClick={handleDrawerToggle}
           >
-            <MenuIcon sx={{ fontSize: 30 }} /> {/* Increase icon size for better visibility */}
+            <MenuIcon sx={{ fontSize: '2rem' }} /> {/* Consistent icon size */}
           </IconButton>
         </Toolbar>
       </AppBar>
@@ -74,7 +74,7 @@ export default function TopBar() {
         <Box
           sx={{
             position: 'fixed',
-            top: '6.5vh',
+            top: '4rem',
             left: 0,
             width: '100%',
             backgroundColor: 'white',
@@ -93,7 +93,7 @@ export default function TopBar() {
                   textAlign: 'center',
                   color: activetab === path ? 'rgb(38, 91, 172)' : 'black',
                   fontWeight: 600,
-                  padding: '1vh',
+                  padding: '1rem', // Consistent padding
                 }}
               >
                 {path.substring(1) || 'Decompress'}
