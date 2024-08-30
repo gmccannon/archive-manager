@@ -1,4 +1,4 @@
-# Start up guide
+# Start up guide (to run locally)
 
 Install docker  
 Start the docker daemon  
@@ -14,8 +14,6 @@ Node.js, React, Flask, Docker, Vercel, Google Cloud Run
 - [x] Conversion backend
 - [x] Drag and Drop
 - [ ] Style Page
-  - [ ] Logo
+- [x] Host on Vercel
 - [ ] Host on GCR
-  - [x] Configure Docker
-  - [ ] Buy and configure domain name
-  - [ ] Deploy
+- [ ] Buy and configure domain name
