@@ -66,34 +66,6 @@ def compresser():
 
         # Send the ZIP file as an attachment
         return send_file(zip_buffer, as_attachment=True, download_name='compressed_file.zip', mimetype='application/zip')
-    
-@app.route('/repair', methods=['POST'])
-def decompressor():
-    if 'file' not in request.files:
-        return 'No file part in the request', 400
-
-    file = request.files['file']
-
-    if file.filename == '':
-        return 'No selected file', 400
-
-    # Create a temporary directory to extract files
-    extract_path = 'extracted_files'
-    os.makedirs(extract_path, exist_ok=True)
-
-    with zipfile.ZipFile(file, 'r') as zip_ref:
-        zip_ref.extractall(extract_path)
-        file_info = zip_ref.infolist()[0]  # Assuming you want the first file
-
-    extracted_file_path = os.path.join(extract_path, file_info.filename)
-
-    # Send the extracted file back as a response
-    return send_file(
-        extracted_file_path,
-        as_attachment=True,
-        download_name=file_info.filename,
-        mimetype='application/octet-stream'
-    )
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=5000)

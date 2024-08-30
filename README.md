@@ -13,7 +13,7 @@ Node.js, React, Flask, Docker, Vercel, Google Cloud Run
 - [x] File upload and removal
 - [x] Conversion backend
 - [x] Drag and Drop
-- [ ] Style Page
+- [x] Style Page
 - [x] Host on Vercel
-- [ ] Host on GCR
+- [x] Host on GCR
 - [ ] Buy and configure domain name
