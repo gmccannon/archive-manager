@@ -55,28 +55,19 @@ export default function TopBar() {
                 )
               )}
             </Box>
-            <IconButton
-              sx={{ display: { xs: 'flex', md: 'none' } }} // Show menu icon on mobile
-              edge="start"
-              color="inherit"
-              aria-label="menu"
-              onClick={handleDrawerToggle}
-            >
-              <MenuIcon />
-            </IconButton>
           </Box>
-          <Box sx={{ display: 'flex', alignItems: 'center' }}>
-            <Button
-              sx={{ ml: 2, color: 'black' }}
-              color="inherit"
-              component="a"
-              href="https://github.com/gmccannon"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              Github
-            </Button>
-          </Box>
+          <IconButton
+            sx={{ 
+              display: { xs: 'flex', md: 'none' }, // Show menu icon on mobile
+              color: 'black', // Ensure the icon is visible
+              padding: '10px', // Increase padding for easier clicking
+            }} 
+            edge="end" // Align to the right side
+            aria-label="menu"
+            onClick={handleDrawerToggle}
+          >
+            <MenuIcon sx={{ fontSize: 30 }} /> {/* Increase icon size for better visibility */}
+          </IconButton>
         </Toolbar>
       </AppBar>
       {mobileOpen && (
