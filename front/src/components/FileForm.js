@@ -68,7 +68,7 @@ function FileForm(props) {
         const url = window.URL.createObjectURL(blob);
         const a = document.createElement('a');
         a.href = url;
-        a.download = 'generated_pdf.pdf';
+        a.download = 'generated_file';
         document.body.appendChild(a);
         a.click();
         a.remove();
