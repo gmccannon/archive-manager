@@ -31,7 +31,7 @@ export default function TopBar() {
           <Box sx={{ display: 'flex', alignItems: 'center' }}>
             <img src={logo} alt="Logo" style={{ height: '3rem', marginRight: '1rem' }} />
             <Typography variant="h6" component="div" sx={{ color: 'black', marginRight: '1rem' }}>
-              Archive Manager
+              ArchiveManager
             </Typography>
             <Box
               sx={{

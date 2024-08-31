@@ -57,7 +57,7 @@ function FileForm(props) {
     formData.append('file', file);
 
     try {
-      const destinationString = `https://image1-zh2ztunzuq-uc.a.run.app/${props.endpoint}`;
+      const destinationString = `${process.env.REACT_APP_API_URL}/${props.endpoint}`;
       const response = await fetch(destinationString, {
         method: 'POST',
         body: formData,
