@@ -40,7 +40,7 @@ export default function TopBar() {
                 gap: '0.5rem',
               }}
             >
-              {['/compress', '/', '/encrypt', '/decrypt', '/sign', '/verify', '/repair', '/split'].map(
+              {['/compress', '/', '/encrypt', '/decrypt', '/peek', '/verify', '/repair', '/split'].map(
                 (path, index) => (
                   <Button
                     key={index}
@@ -83,7 +83,7 @@ export default function TopBar() {
             display: { xs: 'block', md: 'none' }, // Show on mobile
           }}
         >
-          {['/compress', '/', '/encrypt', '/decrypt', '/sign', '/verify', '/repair', '/split'].map(
+          {['/compress', '/', '/encrypt', '/decrypt', '/peek', '/verify', '/repair', '/split'].map(
             (path, index) => (
               <Button
                 key={index}

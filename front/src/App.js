@@ -4,7 +4,7 @@ import TopBar from './components/TopBar';
 import DecompressPage from './pages/DecompressPage';
 import CompressPage from './pages/CompressPage';
 import BottomBar from "./components/BottomBar";
-import SignPage from "./pages/SignPage";
+import PeekPage from "./pages/PeekPage";
 import UnsignPage from "./pages/UnsignPage";
 import RepairPage from "./pages/RepairPage";
 import SplitPage from "./pages/SplitPage";
@@ -19,7 +19,7 @@ function App() {
         <Routes>
           <Route path="/" element={<DecompressPage />}/>
           <Route path="/compress" element={<CompressPage />} />
-          <Route path="/sign" element={<SignPage />} />
+          <Route path="/peek" element={<PeekPage />} />
           <Route path="/verify" element={<UnsignPage />} />
           <Route path="/repair" element={<RepairPage />} />
           <Route path="/split" element={<SplitPage />} />
