@@ -1,10 +1,11 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
+import { Analytics } from "@vercel/analytics/react"
 import './App.css';
 import TopBar from './components/TopBar';
 import DecompressPage from './pages/DecompressPage';
 import CompressPage from './pages/CompressPage';
 import BottomBar from "./components/BottomBar";
-import PeekPage from "./pages/PeekPage";
+import PreviewPage from "./pages/PreviewPage";
 import UnsignPage from "./pages/UnsignPage";
 import RepairPage from "./pages/RepairPage";
 import SplitPage from "./pages/SplitPage";
@@ -14,12 +15,13 @@ import DecryptPage from "./pages/DecryptPage";
 function App() {
   return (
     <div className="App">
+      <Analytics/>
       <BrowserRouter>
         <TopBar />
         <Routes>
           <Route path="/" element={<DecompressPage />}/>
           <Route path="/compress" element={<CompressPage />} />
-          <Route path="/peek" element={<PeekPage />} />
+          <Route path="/preview" element={<PreviewPage />} />
           <Route path="/verify" element={<UnsignPage />} />
           <Route path="/repair" element={<RepairPage />} />
           <Route path="/split" element={<SplitPage />} />
